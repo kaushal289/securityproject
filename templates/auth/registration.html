@@ -5,21 +5,21 @@
     <h2>Registration form</h2>
     <hr/>
 <!-- form to create user-->
-    <form  action="" method="POST"  class="registration-form">
+    <form  action="" method="POST"  class="registration-form" onsubmit="validateRegistrationForm(event)">
     {% csrf_token %}
     <!-- fullname -->
     <div class="row">
         <div class="col-lg-6 input-group md-form form-sm">
             <div class="input-group-append"   >
                 <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
-                <input type="text" name="username" id="username" onfocusout="fn()" class="form-control mt-2" placeholder="user Name" required>
+                <input type="text" name="username" id="customer_username" onfocusout="fn()" class="form-control mt-2" placeholder="user Name">
             </div>
         </div>
     <!-- email -->
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
-                <input type="email" name="customer_email"  id="user_email"  class="form-control mt-2" placeholder="Email Address" required>
+                <input type="email" name="customer_email"  id="customer_email"  class="form-control mt-2" placeholder="Email Address">
             </div>
         </div>
     </div>
@@ -28,14 +28,14 @@
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
-                <input type="text" name="customer_address" id="user_address" onfocusout="fn()" class="form-control mt-2" placeholder="Address" required>
+                <input type="text" name="customer_address" id="customer_address" onfocusout="fn()" class="form-control mt-2" placeholder="Address" >
             </div>
         </div>
         <!-- Phone number-->
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
-                <input type="text" name="customer_phone" id="user_phone" onfocusout="fn()" class="form-control mt-2" placeholder="Phone Number" required>
+                <input type="text" name="customer_phone" id="customer_phone" onfocusout="fn()" class="form-control mt-2" placeholder="Phone Number">
             </div>
         </div>
     </div>
@@ -43,13 +43,13 @@
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="password" id="password" show="*"  class="form-control mt-2" placeholder="Password" required>
+                <input type="Password" name="password" id="customer_password" show="*"  class="form-control mt-2" placeholder="Password">
             </div>
         </div>
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="customer_cpass" id="user_cpass"   class="form-control mt-2" placeholder="Confirm Password" required>
+                <input type="Password" name="customer_cpass" id="customer_confirm-password"   class="form-control mt-2" placeholder="Confirm Password">
             </div>
         </div>
     </div>
@@ -61,27 +61,45 @@
             </i>Home</button></a>
     </div>
 </div>
-<li><p id="usermessage" style="color:red"></p>
-    </form>
-    <script>
-        function fn(){
-        var user_name = document.getElementById("user_name").value;
-        var user_address=document.getElementById("user_address").value;
-        var user_phone=document.getElementById("user_phone").value;
-        if (user_name.length < 4) {
-            document.getElementById("usermessage").innerHTML="username must be 4 character";
-     
-          }
-        if(user_address.length == 0) {
-            document.getElementById("usermessage").innerHTML="Address field must be filled.";
-          }
-        if(user_phone.length < 10) {
-            document.getElementById("usermessage").innerHTML="Phone number must be 10 digits";
-          }
-          else{
-            document.getElementById("usermessage").innerHTML="";
-          }
-        } 
-    </script>
+<div class="messages" style="color: red;" id="messages">
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
 </div>
+    </form>
+
+</div>
+<script> 
+    let last_login=new Date();
+    document.getElementById('last_login').value=last_login
+    function validateRegistrationForm($event){
+        let customer_username=document.getElementById('customer_username');
+        let customer_address=document.getElementById('customer_address');
+        let customer_phone=document.getElementById('customer_phone');
+        let customer_email=document.getElementById('customer_email');
+        let customer_password=document.getElementById('customer_password');
+        let customer_cpassword=document.getElementById('customer_confirm-password');
+        let messages=[]
+        let errorElement=document.getElementById('messages')
+        let num=parseInt(customer_phone)
+    
+        if (customer_username.value=="" | customer_email.value=="" | customer_password.value==""| customer_cpassword.value==""|customer_address.value=="" | customer_phone==""){
+            messages.push('All fields are required')
+            $event.preventDefault();
+        }
+        else if(customer_password.value!=customer_cpassword.value){
+            messages.push("password and confirm password doesnt match")
+        }
+        
+        else if(Number.isInteger(num)){
+            messages.push("enter integer in phone number and length must be 10")
+        }
+        
+        if(messages.length>0){
+            $event.preventDefault();
+            errorElement.innerText=messages.join(',')
+        }
+        
+    }
+    </script>
 {% endblock %}

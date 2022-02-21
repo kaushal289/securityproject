@@ -23,7 +23,7 @@
 
   .registration{
   background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.63)) padding-box,
-    linear-gradient(45deg, purple, orange) border-box;
+    linear-gradient(45deg, rgb(0, 126, 158), rgb(0, 81, 255)) border-box;
   border: 20px solid transparent;
   border-radius: 50px;
   padding: 10px 20px;
@@ -84,7 +84,7 @@ select{
     justify-content: center;
 }
 .thead{
-    background-color: rgb(41, 177, 0);
+    background-color: rgb(42, 91, 253);
     color: white;
     font-size: 20px;
     text-align: center;
@@ -107,10 +107,10 @@ select{
   
   /* Style the active class, and buttons on mouse-over */
   .active, .btnall:hover {
-    background-color: rgb(10, 116, 0) !important;
+    background-color: rgb(2, 0, 116) !important;
     color: white;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
 
@@ -120,4 +120,11 @@ select{
 #navbarCollapse{
     height: -webkit-fill-available;
     width:100px;
+}
+.ctotal{
+    font-size: 20px;
+    color: white;
+    background-color: #0091ca;
+    margin: 20px;
+    box-shadow: 5px 10px rgb(75, 159, 255);
 }

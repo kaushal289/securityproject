@@ -16,3 +16,4 @@ const togglePassword = document
             // Toggle the eye and bi-eye icon
             this.classList.toggle('fa-eye-slash');
         });
+

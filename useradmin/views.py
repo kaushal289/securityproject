@@ -25,17 +25,30 @@ def admindash(request):
         page = 1
     Ctotals=Customer.objects.all().count()
     Ptotals=Product.objects.all().count()
-    
+    Ototals=Buyproduct.objects.all().count()
     print(Ctotals)
     customers=Customer.objects.raw("select * from customer limit 7 offset % s", [offset])
     pageItem = len(customers)
-    return render(request, "admin/admindash.html", {'Ctotals':Ctotals,'Ptotals':Ptotals,'customers': customers, 'page': page, 'pageItem': pageItem})
+    return render(request, "admin/admindash.html", {'Ctotals':Ctotals,'Ototals':Ototals,'Ptotals':Ptotals,'customers': customers, 'page': page, 'pageItem': pageItem})
 
 
 def adminproduct(request):
-    
-    products=Product.objects.raw('select * from product')
-    return render(request,"admin/adminproduct.html",{'products':products})
+    if (request.method == "POST"):
+        page = int(request.POST['page'])
+        if ('prev' in request.POST):
+            page = page - 1
+        if ('next' in request.POST):
+            page = page + 1
+        tempOffSet = page - 1
+        offset = tempOffSet * 4
+        print(offset)
+    else:
+        offset = 0
+        page = 1
+
+    products=Product.objects.raw('select * from product limit 4 offset % s', [offset])
+    pageItem = len(products)
+    return render(request,"admin/adminproduct.html",{'products':products, 'page': page, 'pageItem': pageItem})
 
 
 def customer_delete(request,p_id):
@@ -44,8 +57,22 @@ def customer_delete(request,p_id):
     return redirect ("/useradmin/admindash")
 
 def billing(request):
-    bills=Buyproduct.objects.raw('select * from buyproduct')
-    return render(request,"admin/billings.html",{'bills':bills})
+    if (request.method == "POST"):
+        page = int(request.POST['page'])
+        if ('prev' in request.POST):
+            page = page - 1
+        if ('next' in request.POST):
+            page = page + 1
+        tempOffSet = page - 1
+        offset = tempOffSet * 4
+        print(offset)
+    else:
+        offset = 0
+        page = 1
+
+    bills=Buyproduct.objects.raw('select * from buyproduct limit 4 offset % s', [offset])
+    pageItem = len(bills)
+    return render(request,"admin/billings.html",{'bills':bills, 'page': page, 'pageItem': pageItem})
 
 def updatecomplete(request,e_id):
     completeproduct=Buyproduct.objects.get(buyproduct_id=e_id)

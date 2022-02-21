@@ -29,18 +29,21 @@ def login_redirect(request):
         username=request.POST["username"]
         password=request.POST["password"]
         try:
-            customer=Customer.objects.get(username=username,password=password)
-            request.session['username']=request.POST['username']
-            request.session['password']=request.POST['password']
-            request.session['customer_id']=customer.customer_id
-            return redirect ('/')
-        except:
             user=Useradmin.objects.get(username=username,password=password)
             if user is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
                 return redirect('/useradmin/admindash')
-            return render("/login_redirect")
+        except:
+            try:  
+                customer=Customer.objects.get(username=username,password=password)
+                request.session['username']=request.POST['username']
+                request.session['password']=request.POST['password']
+                request.session['customer_id']=customer.customer_id
+                return redirect ('/')
+            except:
+                messages.error(request, 'Please enter correct username and password')
+                return render(request,"auth/login.html")
     else:
         form=CustomerForm()
         print("invalid")

@@ -3,7 +3,9 @@
 {% load static %}
 <!-- 
 10 - Navbar justified centered links full width
+
 -->
+<h1>Product details</h1>
         <div class="col-lg-12 d-flex justify-content-center tablebody table-responsive"> 
            
                      <table class="col-lg-10 table table-bordered table-hover table-striped">
@@ -12,7 +14,7 @@
                                 <th>name</th>
                                 <th>price</th>
                                 <th>type</th>
-                                <th>desc</th>
+                          
                                 <th>image</th>
                                 <th>update/delete</th>
                             </tr>
@@ -22,8 +24,7 @@
                                     <td>{{product.product_name}}</td>
                                     <td>{{product.product_price}}</td>
                                     <td>{{product.product_type}}</td>
-                                    <td>{{product.product_desc}}</td>
-                                    <td><img width="100" src="{% static 'assets/' %}{{product.product_image}}"></td>
+                                    <td><img width="100" height="70" src="{% static 'assets/' %}{{product.product_image}}"></td>
                                  <td>
                                      <a href="/product/editproduct/{{product.product_id}}" style="color:rgb(80, 214, 255)"><i class="fa fa-pencil-square fa-lg" style="color:rgb(129, 255, 56)"></i>{{customer.customer_id}}</a>
                                      |
@@ -33,6 +34,19 @@
                         {% endfor %}
                      </table>
                  </div>
+            </div>
+            <div class="pagination d-flex justify-content-center">
+                <form method="POST" action="">
+                {% csrf_token %}
+                {% if page > 1 %}
+                <button class="btn btn-secondary p-1" name="prev">Previous</button>
+                {% endif %}
+                <input class="text-center p-1" value="{{page}}" name="page" style="width:30px !important;" readonly>
+                {% if pageItem == 4 %}
+                <button name="next" class="btn btn-secondary p-1">Next</button>
+                {% endif %}
+                </form>
+                </div>
             </div>
         </div>
         <script>

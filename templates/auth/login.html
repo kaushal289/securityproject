@@ -2,9 +2,11 @@
 {% block content %}
 <!--add user-->
 <div class="col-lg-8  registration" >
-    {% for message in messages %}
-        <p id="messages" class="messages">{{message}}</p>
-    {% endfor %}
+    <div class="messages" style="color: red;">
+		{% for message in messages %}
+		{{message}}
+		{% endfor %}
+	</div>
     <h2>Login Here</h2>
     
     <hr/>
@@ -16,13 +18,13 @@
         <div class="col-lg-6 input-group md-form form-sm">
             <div class="input-group-append"   >
                 <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
-                <input type="text" name="username" id="user_name" class="form-control mt-2" placeholder="User Name here" required>
+                <input type="text" name="username" id="user_name" class="form-control mt-2" placeholder="User Name here" >
             </div>
         </div>
         <div class="col-lg-6 input-group md-form form-sm ">
             <div class="input-group-append">
                 <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="password" id="user_pass"  class="form-control mt-2" placeholder="Password here" required>
+                <input type="Password" name="password" id="user_pass"  class="form-control mt-2" placeholder="Password here" >
             </div>
         </div>
         <div class="pass-link"  >

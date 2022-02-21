@@ -20,25 +20,25 @@
                 <option value="4">4</option>
               </select>
             </p>
-            <form  action="/buyproduct/bill_create" method="POST"  class="registration-form">
+            <form  action="/buyproduct/bill_create" method="POST"  class="registration-form" onsubmit="validateRegistrationForm(event)">
                 {% csrf_token %}
                 
             <div class="inv">
-                <input name="username" value="{{request.session.username}}">
-                <input name="product_name" value="{{product.product_name}}">
-                <input id="cost" name="product_price" value="{{product.product_price}}">
-                <input name="product_type" value="{{product.product_type}}">
-                <input name="product_image" value="{{product.product_image}}">
-                <input name="customer" value="{{request.session.customer_id}}">
-                <input name="product" value="{{product.product_id}}">
-                <input name="product_qty" value="1" id="totqty">
-                <input name="status" value="paid / not complete">
+                <input name="username" value="{{request.session.username}}" required>
+                <input name="product_name" value="{{product.product_name}}" required>
+                <input id="cost" name="product_price" value="{{product.product_price}}" required>
+                <input name="product_type" value="{{product.product_type}}" required>
+                <input name="product_image" value="{{product.product_image}}" required>
+                <input name="customer" value="{{request.session.customer_id}}" required>
+                <input name="product" value="{{product.product_id}}"  required>
+                <input name="product_qty" value="1" id="totqty"  required>
+                <input name="status" value="paid / not complete"  required>
             </div> 
-            <p>Eswewa id:</p><p> <input name="esewa_id"></p>
-            <p>Pin:</p><p> <input type="password" name="pin"></p>
-            <p>Your location to drop product:</p><p> <input name="location"></p>
-            <p>Your contact:</p><p><input name="contact_no"></p>
-            <p>Total cost: Rs:</p><p><input id="price" name="tot_price" value="{{product.product_price}}" readable></p>
+            <p>Eswewa id:</p><p> <input name="esewa_id"  required></p>
+            <p>Pin:</p><p> <input type="password" name="pin"  required></p>
+            <p>Your location to drop product:</p><p> <input name="location"  required></p>
+            <p>Your contact:</p><p><input name="contact_no"  required></p>
+            <p>Total cost: Rs:</p><p><input id="price" name="tot_price" value="{{product.product_price}}" readable  required></p>
 
             <a href="/buyproduct/buypage"><button  type="submit" class="btn btn-success ml-5" id="submit">Buy now</button></a>
         </form>
@@ -55,5 +55,9 @@
         document.getElementById("price").value = total_price;
          
     }
+    function validateRegistrationForm($event){
+        alert('your order is placed successfully')
+    }
+
 </script>
 {% endblock %}

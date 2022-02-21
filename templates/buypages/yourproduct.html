@@ -14,7 +14,7 @@
                    <p> Rtal price : {{bill.tot_price}}</p>
                    <p>Drop location : {{bill.location}}</p>
                    <p>
-                   <form action="/buyproduct/updatedelete/{{bill.buyproduct_id}}" method="POST">
+                   <form action="/buyproduct/updatedelete/{{bill.buyproduct_id}}" method="POST"  onsubmit="validateRegistrationForm(event)">
                     {% csrf_token %}
                     {% if bill.status == "Completed" %}
                     {% else %}
@@ -28,6 +28,11 @@
             {% endfor %}
         </div>
 </div>
+<script>
+    function validateRegistrationForm($event){
+        alert("deleted successfully")
+    }
+</script>
 </div>
                 
 {% endblock %}
