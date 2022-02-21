@@ -1,0 +1,59 @@
+{% extends "dashboardlayout.html" %}
+{% block content %}
+{% load static %}
+<div class="col-md-10 container-fluid "> 
+    <div class=" row justify-content-center productback">
+        <div class="align-self-center col-md-6">
+            <br>
+            <img class="img-fluid prodimg" src="{% static 'assets/' %}{{product.product_image}}">
+        </div>
+        <div class="col-md-6 justify-content-center inf">
+            <p class="pnam"><b>{{product.product_name}}</b></p>
+           
+            <p class="discrip">{{product.product_desc}}</p>
+            <p>Product type:{{product.product_type}}</p>
+            <p>Rs:{{product.product_price}}</p>
+            <p>Select the quantity:</p><p><select  id="q"  onclick="price();">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </p>
+            <form  action="/buyproduct/bill_create" method="POST"  class="registration-form">
+                {% csrf_token %}
+                
+            <div class="inv">
+                <input name="username" value="{{request.session.username}}">
+                <input name="product_name" value="{{product.product_name}}">
+                <input id="cost" name="product_price" value="{{product.product_price}}">
+                <input name="product_type" value="{{product.product_type}}">
+                <input name="product_image" value="{{product.product_image}}">
+                <input name="customer" value="{{request.session.customer_id}}">
+                <input name="product" value="{{product.product_id}}">
+                <input name="product_qty" value="1" id="totqty">
+                <input name="status" value="paid / not complete">
+            </div> 
+            <p>Eswewa id:</p><p> <input name="esewa_id"></p>
+            <p>Pin:</p><p> <input type="password" name="pin"></p>
+            <p>Your location to drop product:</p><p> <input name="location"></p>
+            <p>Your contact:</p><p><input name="contact_no"></p>
+            <p>Total cost: Rs:</p><p><input id="price" name="tot_price" value="{{product.product_price}}" readable></p>
+
+            <a href="/buyproduct/buypage"><button  type="submit" class="btn btn-success ml-5" id="submit">Buy now</button></a>
+        </form>
+        </div>
+    </div>
+</div>
+<script>
+    function price(){
+        var price = document.getElementById("cost").value
+        var qty=document.getElementById("q").value
+        console.log(price)
+        total_price =Math.floor(price*qty)
+        document.getElementById("totqty").value = qty;
+        document.getElementById("price").value = total_price;
+         
+    }
+</script>
+{% endblock %}

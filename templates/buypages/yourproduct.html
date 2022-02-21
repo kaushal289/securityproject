@@ -1,0 +1,33 @@
+{% extends "dashboardlayout.html" %}
+{% block content %}
+{% load static %}
+<div class="col-lg-11 container-fluid" id="product">
+    
+    <h1> <br>Your orders</h1>
+        <div class="row1 justify-content-center"> 
+            {% for bill in bills %}
+            <div class="col-md-3 prouctitem">
+                <img class="img-fluid pimg" src="{% static 'assets/' %}{{bill.product_image}}">
+                <p >Product name : {{bill.product_name}}</p>
+                   <p>Status : {{bill.status}}</p>
+                   <p>Quantity : {{bill.product_qty}}</p>
+                   <p> Rtal price : {{bill.tot_price}}</p>
+                   <p>Drop location : {{bill.location}}</p>
+                   <p>
+                   <form action="/buyproduct/updatedelete/{{bill.buyproduct_id}}" method="POST">
+                    {% csrf_token %}
+                    {% if bill.status == "Completed" %}
+                    {% else %}
+                    <input value="Delete" type="submit" class="btn btn-success"/>
+                    {% endif %}
+                    <input name="status" value="deleted" hidden>
+                    </form>
+                </p>
+                    
+        </div>
+            {% endfor %}
+        </div>
+</div>
+</div>
+                
+{% endblock %}

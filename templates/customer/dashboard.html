@@ -1,0 +1,248 @@
+{% extends "dashboardlayout.html" %}
+{% block content %}
+{% load static %}
+            <div class="col-lg-12 row d-flex justify-content-center">
+                <img class="backgroundimg" src="{% static 'img/bac.jpg' %}" height="500">
+                <img class="backgroundimg1" src="{% static 'img/backg.png' %}" height="500">
+                <div class="swal col-lg-12">
+                    <div class="col-lg-8">
+                    <p><b> What we have got for you!! </b></p>
+                    <p> Get 100% Original Pashmina And Cashmir Shwal, Sweeter, Panchu And Many More...(For both man and women)
+                    <div class="wrap">
+                        <a class="btn" href="#product"><button class="button">Shop Now -></button></a>
+                    </div>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-12 row justify-content-center" >
+                <h1 class="col-lg-12"><b><br>Types of product we have</b></h1>
+                <div class="col-md-2 types d-flex justify-content-center">
+                    <div class="ty">
+                        Shwal
+                    </div>
+                    <div>
+                    <a class="btn" id="cd" href="#swal"><img class="timg rounded-circle" src="{% static 'img/swal.jpg' %}">
+                    </a>
+                </div>
+                </div>
+                <div class="col-md-2 types d-flex justify-content-center">
+                    <div class="ty">
+                        Sweeter
+                    </div>
+                    <div>
+                    <a class="btn" href="#sweeter"><img class="timg rounded-circle" src="{% static  'img/sweeter.png' %}">
+                    </a>
+                </div>
+                </div>
+                <div class="col-md-2 types d-flex justify-content-center">
+                    <div class="ty">
+                        Panchu
+                    </div>
+                    <div>
+                    <a class="btn" href="#panchu"><img class="timg rounded-circle" src="{% static  'img/panchu.png' %}">
+                    </a>
+                </div>
+                </div>
+                <div class="col-md-2 types d-flex justify-content-center">
+                    <div class="ty">
+                        Cap and<br> gloves
+                    </div>
+                    <div>
+                    <a class="btn" href="#cap"><img class="timg rounded-circle" src="{% static  'img/cap.jpg' %}">
+                    </a>
+                </div>
+                
+                </div>
+            </div>
+  
+        
+        
+    <div class="col-lg-11 container-fluid" id="swal">
+        <h1>Swal</h1>
+            <div class="row1 justify-content-center"> 
+                
+                {% for swal in swals %}
+                <div class="col-md-3 prouctitem">
+                    <div class="row">
+                    <h6 class="desc"><b>{{swal.product_desc}}</b></h6> 
+                    </div>
+                    <img class="img-fluid prodimg" src="{% static 'assets/' %}{{swal.product_image}}">
+                    <div class="amt">
+                    <h3><b>{{swal.product_name}}</b></h3>
+                <div class="price">Rs:{{swal.product_price}}</div>
+                <a class="btn btn-primary" href="/buyproduct/buypage/{{swal.product_id}}">Buy now</a>
+                </div>
+            </div>
+                {% endfor %}
+            </div>
+    </div>
+    <div class="col-lg-11 container-fluid" id="sweeter">
+        <h1>Sweeter</h1>
+            <div class="row1 justify-content-center"> 
+                {% for sweeter in sweeters %}
+                <div class="col-md-3 prouctitem">
+                    <div class="row">
+                    <h6 class="desc"><b>{{sweeter.product_desc}}</b></h6> 
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/' %}{{sweeter.product_image}}">
+                    <h3><b>{{sweeter.product_name}}</b></h3>
+                <div class="price">Rs:{{sweeter.product_price}}</div>
+                <a class="btn btn-primary" href="/buyproduct/buypage/{{sweeter.product_id}}">Buy now</a>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+    <div class="col-lg-11 container-fluid" id="panchu">
+        <h1>Panchu</h1>
+            <div class="row1 justify-content-center"> 
+                {% for panchu in panchus %}
+                <div class="col-md-3 prouctitem">
+                    <div class="row">
+                    <h6 class="desc"><b>{{panchu.product_desc}}</b></h6> 
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/' %}{{panchu.product_image}}">
+                    <h3><b>{{panchu.product_name}}</b></h3>
+                <div class="price">Rs:{{panchu.product_price}}</div>
+                <a class="btn btn-primary" href="/buyproduct/buypage/{{panchu.product_id}}">Buy now</a>
+                </div>
+                {% endfor %}
+            </div>
+    </div> 
+    <div class="col-lg-11 container-fluid" id="cap">
+        <h1>Cap and gloves</h1>
+            <div class="row1 justify-content-center"> 
+                {% for cap in caps %}
+                <div class="col-md-3 prouctitem">
+                    <div class="row">
+                    <h6 class="desc"><b>{{cap.product_desc}}</b></h6> 
+                    </div>
+                    <img class="img-fluid" src="{% static 'assets/' %}{{ cap.product_image}}">
+                    <h3><b>{{cap.product_name}}</b></h3>
+                <div class="price">Rs:{{cap.product_price}}</div>
+                <a class="btn btn-primary" href="/buyproduct/buypage/{{cap.product_id}}">Buy now</a>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+        <div class="col-lg-11 about container-fluid " id="about">
+            
+            <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 aboutimg d-flex justify-content-center">
+                <img src="{% static 'img/1.jpg' %}" class="rounded-circle" alt="Cinque Terre" width="304" height="236"> 
+            </div>
+            <div class="aboutus col-lg-6">
+                <h1>About us</h1>
+                <p>Well, benefits of about us page are many. Various types of visitors check out your "About Us" page.
+                     They can be first-time visitors, regular visitors, people who wish to work with you, and possible 
+                     customers. With all kinds of visitors coming to your website, you need to offer sufficient and valuable
+                      information to convince them to establish a more substantial connection with you and your business.
+                    </p>
+                </div>
+                </div>
+            </div>
+           
+            <section id="contact" class="col-lg-11 container-fluid">
+
+                <h1 class="section-header">CONTACT</h1>
+                <div class="contact-wrapper">
+                  <form class="form-horizontal" role="form" method="post" action="#">
+              
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="">
+                      </div>
+                    </div>
+              
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="">
+                      </div>
+                    </div>
+              
+                    <textarea class="form-control" rows="10"  placeholder="MESSAGE" name="message"></textarea>
+              
+                    <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                      <div class="btn text-center">
+                        <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                      </div>
+              
+                    </button>
+              
+                  </form>
+                  <div class="direct-contact-container">
+              
+                    <ul class="contact-list">
+                      <li class="list-item"><i class="fa fa-map-marker fa-1x"><span class="contact-text place">Thamel,Kathmandu,Nepal</span></i></li><br>
+                      <li class="list-item"><i class="fa fa-phone fa-1x"><span class="contact-text phone"><a href="tel:+9779865558257" title="Give us a call">(+977) 9865558257</a></span></i></li>
+                      <li class="list-item"><i class="fa fa-envelope fa-1x mail"><span class="contact-text gmail"><a href="mailto:khanalkaushal9@gmail.com" title="Send us an email">khanalkaushal9@gmail.com</a></span></i></li>
+                    </ul>
+              
+                    <hr>
+                    <ul class="social-media-list">
+                      <li><a href="#" target="_blank" class="contact-icon">
+                          <i class="fa fa-github" aria-hidden="true"></i></a>
+                      </li>
+                      <li><a href="#" target="_blank" class="contact-icon">
+                          <i class="fa fa-twitter" aria-hidden="true"></i></a>
+                      </li>
+                      <li><a href="#" target="_blank" class="contact-icon">
+                          <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                      </li>
+                    </ul>
+                    <hr>
+                </div>
+              </section>
+              <footer class="col-lg-12 container-fluid">
+                <div class="top_header">
+                <section>
+                <span><i class="fa fa-map-marker"></i></span>
+                <span>Thamel,Kathmandu,Nepal</span>
+                </section>
+                <section>
+                <span><i class="fa fa-phone"></i></span>
+                <span>(+977) 9865558257</span>
+                </section>
+                <section>
+                <span><i class="fa fa-envelope"></i></span>
+                <span>khanalkaushal9@gmail.com</span>
+                </section>
+                </div>
+                <span class="border-shape"></span>
+                <div class="bottom_content">
+                <section>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-telegram"></i></a>
+                </section>
+                <div class="copyright">
+                    Copyright © 2021 websitename - All rights reserved 
+                </div>
+                </div>
+                </footer>
+            </div>
+        </div>
+        
+                
+     
+        
+    <script>
+        var MainImg = document.getElementById('MainImg')
+        var smallImg = document.getElementsByClassName('small-img');
+
+        smallImg[0].onclick = function () {
+            MainImg.src = smallImg[0].src;
+        }
+        smallImg[1].onclick = function () {
+            MainImg.src = smallImg[1].src;
+        }
+        smallImg[2].onclick = function () {
+            MainImg.src = smallImg[2].src;
+        }
+        smallImg[3].onclick = function () {
+            MainImg.src = smallImg[3].src;
+        }
+    </script>
+
+    {% endblock %}

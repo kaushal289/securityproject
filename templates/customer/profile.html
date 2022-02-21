@@ -1,0 +1,81 @@
+{% extends "loginreg.html" %}
+{% block content %}
+<!--add user-->
+
+<div class="col-lg-8  registration" >
+    <h2>Profile update</h2>
+    <hr/>
+<!-- form to create user-->
+    {% for user in users %}
+    <form  action="/customer_update/{{user.customer_id}}" method="POST"  class="registration-form">
+        {% endfor %}
+    {% csrf_token %}
+    <!-- fullname -->
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
+                <input type="text" name="username" id="username" onfocusout="fn()" class="form-control mt-2" placeholder="user Name" value="{{user.username}}" required>
+            </div>
+            {% endfor %}
+        </div>
+    <!-- email -->
+    
+        <div class="col-lg-6 input-group md-form form-sm ">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
+                <input type="email" name="customer_email"  id="user_email"  class="form-control mt-2" placeholder="Email Address" value="{{user.customer_email}}" required>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Address -->
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm ">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
+                <input type="text" name="customer_address" id="user_address" onfocusout="fn()" class="form-control mt-2" placeholder="Address" value="{{user.customer_address}}" required>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Phone number-->
+        <div class="col-lg-6 input-group md-form form-sm ">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
+                <input type="text" name="customer_phone" id="user_phone" onfocusout="fn()" class="form-control mt-2" placeholder="Phone Number" value="{{user.customer_phone}}" required>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm ">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
+                <input type="Password" name="password" id="password" show="*"  class="form-control mt-2" placeholder="Password" value="{{user.password}}" required>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-6 input-group md-form form-sm ">
+            {% for user in users %}
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
+                <input type="Password" name="customer_cpass" id="user_cpass"   class="form-control mt-2" placeholder="Confirm Password" value="{{user.password}}" required>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--Buttons -->
+    <div class="row d-flex justify-content-center ">
+    <div class="col-sm-6 btn-group m-3">
+        <button  type="submit" class="btn btn-outline-success ml-5" ><b>Update</b></button>
+        <a class="btn" href="/dashboard"><button class="btn btn-outline-danger" ><b>Go back</b></button></a>
+    </div>
+</div>
+</form>
+</div>
+{% endblock %}

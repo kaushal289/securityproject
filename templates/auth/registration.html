@@ -1,0 +1,87 @@
+{% extends "loginreg.html" %}
+{% block content %}
+<!--add user-->
+<div class="col-lg-8  registration" >
+    <h2>Registration form</h2>
+    <hr/>
+<!-- form to create user-->
+    <form  action="" method="POST"  class="registration-form">
+    {% csrf_token %}
+    <!-- fullname -->
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm">
+            <div class="input-group-append"   >
+                <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
+                <input type="text" name="username" id="username" onfocusout="fn()" class="form-control mt-2" placeholder="user Name" required>
+            </div>
+        </div>
+    <!-- email -->
+        <div class="col-lg-6 input-group md-form form-sm ">
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
+                <input type="email" name="customer_email"  id="user_email"  class="form-control mt-2" placeholder="Email Address" required>
+            </div>
+        </div>
+    </div>
+    <!-- Address -->
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm ">
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
+                <input type="text" name="customer_address" id="user_address" onfocusout="fn()" class="form-control mt-2" placeholder="Address" required>
+            </div>
+        </div>
+        <!-- Phone number-->
+        <div class="col-lg-6 input-group md-form form-sm ">
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
+                <input type="text" name="customer_phone" id="user_phone" onfocusout="fn()" class="form-control mt-2" placeholder="Phone Number" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm ">
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
+                <input type="Password" name="password" id="password" show="*"  class="form-control mt-2" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="col-lg-6 input-group md-form form-sm ">
+            <div class="input-group-append">
+                <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
+                <input type="Password" name="customer_cpass" id="user_cpass"   class="form-control mt-2" placeholder="Confirm Password" required>
+            </div>
+        </div>
+    </div>
+    <!--Buttons -->
+    <div class="row d-flex justify-content-center ">
+    <div class="col-sm-6 btn-group m-3">
+        <button  type="submit" class="btn btn-outline-success ml-5" ><b>Register</b></button>
+        <a href="/dashboard"><button type="button"   class="btn btn-outline-warning ml-3">
+            </i>Home</button></a>
+    </div>
+</div>
+<li><p id="usermessage" style="color:red"></p>
+    </form>
+    <script>
+        function fn(){
+        var user_name = document.getElementById("user_name").value;
+        var user_address=document.getElementById("user_address").value;
+        var user_phone=document.getElementById("user_phone").value;
+        if (user_name.length < 4) {
+            document.getElementById("usermessage").innerHTML="username must be 4 character";
+     
+          }
+        if(user_address.length == 0) {
+            document.getElementById("usermessage").innerHTML="Address field must be filled.";
+          }
+        if(user_phone.length < 10) {
+            document.getElementById("usermessage").innerHTML="Phone number must be 10 digits";
+          }
+          else{
+            document.getElementById("usermessage").innerHTML="";
+          }
+        } 
+    </script>
+</div>
+{% endblock %}
