@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -9,7 +10,7 @@ class Customer(models.Model):
     customer_address=models.CharField(max_length=100)
     customer_phone=models.CharField(max_length=10)
     password = models.CharField(max_length=128)
-    last_login=models.DateTimeField(null=True)
+    last_login_time = models.DateTimeField(default=timezone.now)
     class Meta:
         db_table="customer"
 

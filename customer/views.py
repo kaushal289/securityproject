@@ -36,7 +36,7 @@ def register(request):
     return render(request, "auth/registration.html", {'form': form})
 
 MAX_LOGIN_ATTEMPTS = 3
-BAN_DURATION_MINUTES = 1
+BAN_DURATION_SECONDS = 30
 
 def login_redirect(request):
     if request.method == 'POST':
@@ -56,10 +56,10 @@ def login_redirect(request):
             attempt, created = FailedLoginAttempt.objects.get_or_create(username=username)
             now = timezone.now()
 
-            # If there are more than 3 failed attempts and the last attempt was within 1 minute
-            if attempt.attempts >= MAX_LOGIN_ATTEMPTS and now - attempt.last_attempt <= timedelta(minutes=BAN_DURATION_MINUTES):
-                ban_duration = (now - attempt.last_attempt).seconds // 60 + 1
-                messages.error(request, f'Too many failed login attempts. Your account is banned for {ban_duration} minutes.')
+            # If there are more than 3 failed attempts and the last attempt was within 10 seconds
+            if attempt.attempts >= MAX_LOGIN_ATTEMPTS and now - attempt.last_attempt <= timedelta(seconds=BAN_DURATION_SECONDS):
+                ban_duration = BAN_DURATION_SECONDS
+                messages.error(request, f'Too many failed login attempts. Your account is banned for {ban_duration} seconds.')
                 return render(request, "auth/login.html")
 
             # Validate user credentials
@@ -89,6 +89,11 @@ def login_redirect(request):
     else:
         form = CustomerForm()
     return render(request, "auth/login.html", {'form': form})
+
+
+
+
+
 
 @Authentication.valid_user
 def profile(request):
