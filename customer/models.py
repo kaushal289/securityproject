@@ -8,8 +8,13 @@ class Customer(models.Model):
     customer_email=models.CharField(max_length=100)
     customer_address=models.CharField(max_length=100)
     customer_phone=models.CharField(max_length=10)
-    password=models.CharField(max_length=20)
+    password = models.CharField(max_length=128)
     last_login=models.DateTimeField(null=True)
     class Meta:
         db_table="customer"
+
+class FailedLoginAttempt(models.Model):
+    username = models.CharField(max_length=100)
+    attempts = models.IntegerField(default=0)
+    last_attempt = models.DateTimeField(auto_now=True)
         

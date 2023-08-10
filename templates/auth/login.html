@@ -1,44 +1,52 @@
 {% extends "loginreg.html" %}
 {% block content %}
 <!--add user-->
-<div class="col-lg-8  registration" >
-    <div class="messages" style="color: red;">
-		{% for message in messages %}
-		{{message}}
-		{% endfor %}
-	</div>
-    <h2>Login Here</h2>
-    <hr/>
-<!-- form to create user-->
-    <form  action="/login" method="POST" >
-    {% csrf_token %}
-    <!-- fullname -->
-    <div class="row">
-        <div class="col-lg-6 input-group md-form form-sm">
-            <div class="input-group-append"   >
-                <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
-                <input type="text" name="username" id="user_name" class="form-control mt-2" placeholder="User Name here" >
+<div class="col-lg-8 registration d-flex justify-content-center align-items-center">
+    <div>
+        <div class="messages" style="color: red;">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        <h2 class="text-center">Login Here</h2>
+        <hr/>
+        <!-- form to create user-->
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-lg-6 input-group md-form form-sm">
+                    <div class="input-group-append">
+                        <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
+                        <input type="text" name="username" id="user_name" class="form-control mt-2" placeholder="User Name here">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 input-group md-form form-sm ">
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="password" id="user_pass"  class="form-control mt-2" placeholder="Password here" >
+            <div class="row justify-content-center">
+                <div class="col-lg-6 input-group md-form form-sm">
+                    <div class="input-group-append">
+                        <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
+                        <input type="password" name="password" id="user_pass" class="form-control mt-2" placeholder="Password here">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="pass-link"  >
-            <a href="/password_reset">Forgot password?</a>
-        </div>
+            <div class="row justify-content-center">
+                <div class="pass-link">
+                    <a href="/password_reset">Forgot password?</a>
+                </div>
+            </div>
+            <!--Buttons -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-6 btn-group m-3">
+                    <button type="submit" class="btn btn-outline-success ml-5"><b>Login</b></button>
+                    <a href="/"><button type="button" class="btn btn-outline-warning ml-3">
+                        Home</button></a>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <a href="/register" class="btn btn-link ml-3" style="color: green; text-decoration: underline; font-size: medium !important;">
+                    Don't have an account? Click here to Register</a>
+            </div>
+        </form>
     </div>
-    
-    <!--Buttons -->
-    <div class="row d-flex justify-content-center ">
-    <div class="col-sm-6 btn-group m-3">
-        <button  type="submit" class="btn btn-outline-success ml-5"><b>Login</b></button>
-        <a href="/"><button type="button"  class="btn btn-outline-warning ml-3">
-            </i>Home</button></a>
-    </div>
-</div>
-    </form>
 </div>
 {% endblock %}

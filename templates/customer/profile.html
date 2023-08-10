@@ -1,83 +1,161 @@
 {% extends "loginreg.html" %}
 {% block content %}
+<style>
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+</style>
 <!--add user-->
-
-<div class="col-lg-8  registration" >
+<div class="col-lg-8 registration">
     <h2>Profile update</h2>
-    <hr/>
-<!-- form to create user-->
+    <hr />
     {% for user in users %}
-    <form  action="/customer_update/{{user.customer_id}}" method="POST"  class="registration-form">
+    <form action="/customer_update/{{user.customer_id}}" method="POST" class="registration-form" onsubmit="return validateUpdateForm()">
         {% endfor %}
-    {% csrf_token %}
-    <!-- fullname -->
-    <div class="row">
-        <div class="col-lg-6 input-group md-form form-sm">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
-                <input type="text" name="username" id="username" onfocusout="fn()" class="form-control mt-2" placeholder="user Name" value="{{user.username}}" required>
+        {% csrf_token %}
+        <!-- fullname -->
+        <div class="row">
+            <div class="col-lg-6 input-group md-form form-sm">
+                {% for user in users %}
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-user mt-2 p-2"></i></span>
+                    <input type="text" name="username" id="username" onfocusout="validateUpdateForm()" class="form-control mt-2" placeholder="User Name" value="{{user.username}}" required>
+                </div>
+                <span class="error-message" id="username-error"></span>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <!-- email -->
+            <div class="col-lg-6 input-group md-form form-sm ">
+                {% for user in users %}
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
+                    <input type="email" name="customer_email" id="user_email" onfocusout="validateUpdateForm()" class="form-control mt-2" placeholder="Email Address" value="{{user.customer_email}}" required>
+                </div>
+                <span class="error-message" id="email-error"></span>
+                {% endfor %}
+            </div>
         </div>
+        <!-- Address -->
+        <div class="row">
+            <div class="col-lg-6 input-group md-form form-sm ">
+                {% for user in users %}
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
+                    <input type="text" name="customer_address" id="user_address" onfocusout="validateUpdateForm()" class="form-control mt-2" placeholder="Address" value="{{user.customer_address}}" required>
+                </div>
+                <span class="error-message" id="address-error"></span>
+                {% endfor %}
+            </div>
+            <!-- Phone number-->
+            <div class="col-lg-6 input-group md-form form-sm ">
+                {% for user in users %}
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
+                    <input type="text" name="customer_phone" id="user_phone" onfocusout="validateUpdateForm()" class="form-control mt-2" placeholder="Phone Number" value="{{user.customer_phone}}" required>
+                </div>
+                <span class="error-message" id="phone-error"></span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 input-group md-form form-sm ">
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
+                    <input type="password" name="password" id="password" class="form-control mt-2" placeholder="Password">
+                </div>
+                <span class="error-message" id="password-error"></span>
+            </div>
+            <div class="col-lg-6 input-group md-form form-sm ">
+                <div class="input-group-append">
+                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
+                    <input type="password" name="customer_cpass" id="user_cpass" class="form-control mt-2" placeholder="Confirm Password" >
+                </div>
+                <span class="error-message" id="confirm-password-error"></span>
+            </div>
+        </div>
+        <!--Buttons -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-6 btn-group m-3">
+                <button type="submit" class="btn btn-outline-success ml-5"><b>Update</b></button>
+            </div>
+        </div>
+    </form>
+    <div class="center-button" style="text-align: center;">
+        <a class="btn" href="/"><button class="btn btn-outline-danger"><b>Go back</b></button></a>
+    </div>
+</div>
 
-        
-    <!-- email -->
-    
-        <div class="col-lg-6 input-group md-form form-sm ">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-envelope mt-2 p-2 "></i></span>
-                <input type="email" name="customer_email"  id="user_email"  class="form-control mt-2" placeholder="Email Address" value="{{user.customer_email}}" required>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <!-- Address -->
-    <div class="row">
-        <div class="col-lg-6 input-group md-form form-sm ">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-address-book mt-2 p-2 "></i></span>
-                <input type="text" name="customer_address" id="user_address" onfocusout="fn()" class="form-control mt-2" placeholder="Address" value="{{user.customer_address}}" required>
-            </div>
-            {% endfor %}
-        </div>
-        <!-- Phone number-->
-        <div class="col-lg-6 input-group md-form form-sm ">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-phone-square mt-2 p-2 "></i></span>
-                <input type="text" name="customer_phone" id="user_phone" onfocusout="fn()" class="form-control mt-2" placeholder="Phone Number" value="{{user.customer_phone}}" required>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 input-group md-form form-sm ">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-lock" aria-hidden="true" style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="password" id="password" show="*"  class="form-control mt-2" placeholder="Password" value="{{user.password}}" required>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="col-lg-6 input-group md-form form-sm ">
-            {% for user in users %}
-            <div class="input-group-append">
-                <span class="icon"><i class="fa fa-lock" aria-hidden="true"  style="margin-left:10px; margin-top:10px;"></i></span>
-                <input type="Password" name="customer_cpass" id="user_cpass"   class="form-control mt-2" placeholder="Confirm Password" value="{{user.password}}" required>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <!--Buttons -->
-    <div class="row d-flex justify-content-center ">
-    <div class="col-sm-6 btn-group m-3">
-        <button  type="submit" class="btn btn-outline-success ml-5" ><b>Update</b></button>
-        <a class="btn" href="/dashboard"><button class="btn btn-outline-danger" ><b>Go back</b></button></a>
-    </div>
-</div>
-</form>
-</div>
+<script>
+function validateUpdateForm() {
+    var isValid = true;
+
+    // Reset previous error messages
+    var errorSpans = document.querySelectorAll(".error-message");
+    errorSpans.forEach(function(span) {
+        span.textContent = "";
+    });
+
+    // Validation for each field
+    var username = document.getElementById("username");
+    if (username.value.trim() === "") {
+        document.getElementById("username-error").textContent = "Username is required.";
+        isValid = false;
+    } else if (username.value.length < 5 || username.value.length > 10) {
+        document.getElementById("username-error").textContent = "Username should be 5 to 10 characters long.";
+        isValid = false;
+    }
+
+    var email = document.getElementById("user_email");
+    if (email.value.trim() === "") {
+        document.getElementById("email-error").textContent = "Email is required.";
+        isValid = false;
+    } else if (!email.value.includes("@") || !email.value.endsWith(".com")) {
+        document.getElementById("email-error").textContent = "Email should contain '@' and end with '.com'.";
+        isValid = false;
+    }
+
+    var address = document.getElementById("user_address");
+    if (address.value.trim() === "") {
+        document.getElementById("address-error").textContent = "Address is required.";
+        isValid = false;
+    }
+
+    var phone = document.getElementById("user_phone");
+    if (phone.value.trim() === "") {
+        document.getElementById("phone-error").textContent = "Phone number is required.";
+        isValid = false;
+    } else if (!/^\d{10}$/.test(phone.value)) {
+        document.getElementById("phone-error").textContent = "Phone number should have exactly 10 digits.";
+        isValid = false;
+    }
+
+    var password = document.getElementById("password");
+    if (password.value.trim() === "") {
+        document.getElementById("password-error").textContent = "Password is required.";
+        isValid = false;
+    } else if (password.value.length < 8 || password.value.length > 12) {
+        document.getElementById("password-error").textContent = "Password should be 8 to 12 characters long.";
+        isValid = false;
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(password.value)) {
+        document.getElementById("password-error").textContent = "Password should include at least one uppercase letter, one lowercase letter, one number, and one special character.";
+        isValid = false;
+    } else if (password.value.includes(username.value) || password.value.includes(phone.value)) {
+        document.getElementById("password-error").textContent = "Avoid using personal information in the password.";
+        isValid = false;
+    }
+
+    var confirmPassword = document.getElementById("user_cpass");
+    if (confirmPassword.value.trim() === "") {
+        document.getElementById("confirm-password-error").textContent = "Confirm Password is required.";
+        isValid = false;
+    } else if (password.value !== confirmPassword.value) {
+        document.getElementById("confirm-password-error").textContent = "Passwords do not match.";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
+
 {% endblock %}

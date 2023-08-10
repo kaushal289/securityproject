@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'thamelpashmina',
         'HOST': '127.0.0.1' ,
-        'PORT':'3309',
+        'PORT':'3307',
         'USER':'root',
         'PASSWORD':'',
     }
@@ -145,3 +145,10 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'khanalkaushal9@gmail.com'
 EMAIL_HOST_PASSWORD = "voexueblmtmtgdex"
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+]
