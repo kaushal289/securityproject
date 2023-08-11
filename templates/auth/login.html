@@ -1,12 +1,26 @@
 {% extends "loginreg.html" %}
 {% block content %}
+
 <!--add user-->
 <div class="col-lg-8 registration d-flex justify-content-center align-items-center">
     <div>
+        
         <div class="messages" style="color: red;">
             {% for message in messages %}
             {{ message }}
             {% endfor %}
+            {% if show_password_change_notification %}
+    <div id="passwordChangeNotification" class="popup-notification">
+      Time to change your password!
+    </div>
+    <script>
+      setTimeout(function() {
+        var notification = document.getElementById('passwordChangeNotification');
+        notification.style.display = 'none';
+      }, 10000);  // Hide the notification after 10 seconds
+    </script>
+  {% endif %}
+            
         </div>
         <h2 class="text-center">Login Here</h2>
         <hr/>

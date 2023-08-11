@@ -10,9 +10,11 @@ class Customer(models.Model):
     customer_address=models.CharField(max_length=100)
     customer_phone=models.CharField(max_length=10)
     password = models.CharField(max_length=128)
-    last_login_time = models.DateTimeField(default=timezone.now)
+    last_login = models.DateTimeField(null=True, blank=True)
     class Meta:
         db_table="customer"
+    def __str__(self):
+        return self.username
 
 class FailedLoginAttempt(models.Model):
     username = models.CharField(max_length=100)

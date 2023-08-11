@@ -8,6 +8,9 @@ from product.forms import ProductForm
 from buyproduct.models import Buyproduct
 from buyproduct.forms import DeleteupdateForm
 from useradmin.forms import UseradminForm
+import hashlib
+from django.contrib import messages
+from .forms import UseradminForm
 
 # Create your views here.
 def admindash(request):
@@ -103,20 +106,21 @@ def userinfo(request):
     return render(request,"admin/viewuser.html",{'users':users,'page':page,'pageItem':pageItem})
 
 def adduser(request):
-    if request.method=="POST":
-        form=UseradminForm(request.POST)
-        print(form)
+    if request.method == "POST":
+        form = UseradminForm(request.POST)
         if form.is_valid():
-            try:
-                print("valid")
-                form.save()
-                return redirect("/useradmin/userinfo")
-            except:
-                print("validation failed")
+            user = form.save(commit=False)
+            plain_password = form.cleaned_data.get('password')
+            hashed_password = hashlib.sha256(plain_password.encode()).hexdigest()
+            user.password = hashed_password
+            user.save()
+
+            messages.success(request, "User added successfully.")
+            return redirect("/useradmin/userinfo")
     else:
-        form=UseradminForm()
-        print("invalid")
-    return render(request, "admin/adduser.html",{'form':form})
+        form = UseradminForm()
+    return render(request, "admin/adduser.html", {'form': form})
+
 
 
 def edituser(request,p_id):
