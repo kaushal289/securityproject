@@ -5,11 +5,22 @@
         color: red;
         font-size: 14px;
     }
+    .mes{
+        color: red;
+        font-size: 14px;
+        text-align: center;
+    }
 </style>
 <!--add user-->
 <div class="col-lg-8 registration">
     <h2>Registration form</h2>
     <hr />
+    <div class="justify-content-center mes">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+
     <!-- form to create user-->
     <form action="" method="POST" class="registration-form" onsubmit="return validateRegistrationForm()">
         {% csrf_token %}

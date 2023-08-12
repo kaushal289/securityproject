@@ -17,23 +17,30 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 from .models import FailedLoginAttempt
 
-# Create your views here.
 def register(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            plain_password = form.cleaned_data.get('password')
-            hashed_password = hashlib.sha256(plain_password.encode()).hexdigest()
-            user.password = hashed_password
-            user.save()
+            username = form.cleaned_data.get('username')
 
-            user1 = form.cleaned_data.get('username')
-            messages.success(request, "Welcome " + user1 + ", please login here to shop with heavy discount $$$.")
-            return redirect("/login")
+            # Check if the username already exists
+            if Customer.objects.filter(username=username).exists():
+                messages.error(request, "Username already exists. Please choose a different username.")
+            else:
+                user = form.save(commit=False)
+                plain_password = form.cleaned_data.get('password')
+                hashed_password = hashlib.sha256(plain_password.encode()).hexdigest()
+                user.password = hashed_password
+                user.save()
+
+                user1 = form.cleaned_data.get('username')
+                messages.success(request, "Welcome " + user1 + ", please login here to shop with heavy discount $$$.")
+                return redirect("/login")
+
     else:
         form = CustomerForm()
     return render(request, "auth/registration.html", {'form': form})
+
 
 MAX_LOGIN_ATTEMPTS = 3
 BAN_DURATION_SECONDS = 30
@@ -130,6 +137,7 @@ def login_redirect(request):
                 request.session['username'] = request.POST['username']
                 request.session['password'] = hashed_password
                 request.session['customer_id'] = customer.customer_id
+
                 
                 # Reset failed login attempts
                 attempt.attempts = 0
@@ -199,6 +207,7 @@ def update(request, p_id):
             user.password = hashed_password
             user.save()
             request.session['username'] = user.username
+            request.session['customer_id'] = customer.customer_id
             users = Customer.objects.get(customer_id=request.session['customer_id'])
             return render(request, "customer/dashboard.html", {'users': [users]})
     else:

@@ -230,4 +230,4 @@ AUTO_LOGOUT = {
 }
 
 # Set the session timeout to 120 seconds (2 minutes)
-SESSION_COOKIE_AGE = 10
+SESSION_COOKIE_AGE = 120

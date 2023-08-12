@@ -726,3 +726,541 @@ Traceback (most recent call last):
     if last_login_time and current_time - last_login_time > timedelta(minutes=1):
        ^^^^^^^^^^^^^^^
 NameError: name 'last_login_time' is not defined
+ERROR 2023-08-11 21:24:08,552 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+ERROR 2023-08-11 21:24:37,550 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+ERROR 2023-08-11 21:25:06,636 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+ERROR 2023-08-11 21:25:48,008 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+WARNING 2023-08-11 22:12:31,863 log log.py 241 log_response Not Found: /favicon.ico
+ERROR 2023-08-11 22:15:57,424 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+ERROR 2023-08-11 22:16:33,415 log log.py 241 log_response Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view customer.views.register didn't return an HttpResponse object. It returned None instead.
+ERROR 2023-08-11 22:28:31,246 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:30:34,274 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:32:32,296 log log.py 241 log_response Internal Server Error: /buyproduct/bill_create
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 23, in bill_create
+    request.session['customer_id']
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:35:31,664 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:36:29,236 log log.py 241 log_response Internal Server Error: /buyproduct/bill_create
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 23, in bill_create
+    Customer.objects.get(customer_id=request.session['customer_id'])
+                                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:37:48,819 log log.py 241 log_response Internal Server Error: /buyproduct/bill_create
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Authentication.valid_user_where_id.<locals>.wrap() missing 1 required positional argument: 'p_id'
+ERROR 2023-08-11 22:40:03,998 log log.py 241 log_response Internal Server Error: /buyproduct/bill_create
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Authentication.valid_user_where_id.<locals>.wrap() missing 1 required positional argument: 'p_id'
+ERROR 2023-08-11 22:40:42,066 log log.py 241 log_response Internal Server Error: /buyproduct/bill_create
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Authentication.valid_user_where_id.<locals>.wrap() missing 1 required positional argument: 'p_id'
+ERROR 2023-08-11 22:40:59,661 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 30, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:45:09,916 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 30, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:45:12,358 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 30, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:46:06,220 log log.py 241 log_response Internal Server Error: /buyproduct/updatedelete/4
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Authentication.valid_user_where_id.<locals>.wrap() got an unexpected keyword argument 'e_id'
+ERROR 2023-08-11 22:46:38,303 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 29, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+WARNING 2023-08-11 22:47:35,454 log log.py 241 log_response Not Found: /favicon.ico
+ERROR 2023-08-11 22:48:38,290 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:53:28,921 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:54:38,197 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:54:40,623 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:55:06,873 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:56:48,223 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 22:57:24,166 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:01:14,623 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:04:38,542 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:04:38,843 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:04:58,709 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 32, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:05:37,422 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:05:47,558 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:06:12,806 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:06:46,404 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:07:09,093 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills=Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:07:35,634 log log.py 241 log_response Internal Server Error: /buyproduct/updatedelete/5
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 38, in updatedelete
+    print(request.session['customer_id'])
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:13:37,435 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:18:59,429 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+ERROR 2023-08-11 23:18:59,655 log log.py 241 log_response Internal Server Error: /buyproduct/yourproduct
+Traceback (most recent call last):
+  File "C:\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khana\OneDrive\Desktop\security\ecommerce\buyproduct\views.py", line 31, in yourproduct
+    bills = Buyproduct.objects.filter(customer=request.session['customer_id'])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ~~~~~~~~~~~~~^^^^^
+KeyError: 'customer_id'
+WARNING 2023-08-11 23:21:05,260 log log.py 241 log_response Not Found: /admindash
+WARNING 2023-08-11 23:26:10,494 log log.py 241 log_response Not Found: /favicon.ico
+WARNING 2023-08-11 23:26:26,214 log log.py 241 log_response Not Found: /favicon.ico
+WARNING 2023-08-11 23:49:34,642 log log.py 241 log_response Not Found: /favicon.ico
+WARNING 2023-08-11 23:49:46,632 log log.py 241 log_response Not Found: /favicon.ico
